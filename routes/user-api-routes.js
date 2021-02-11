@@ -10,8 +10,11 @@ module.exports = (app) => {
     })
 
     app.post('/api/:user_id', (req,res) => {
-        db.Menu.create({
-            
-        })
+        db.Menu.create(req.body, {
+            where: {
+                user_id: req.params.user_id
+            }
+        }).then((results) => res.json(results));
     })
+
 }
