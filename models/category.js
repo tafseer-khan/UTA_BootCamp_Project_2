@@ -10,13 +10,5 @@ module.exports = (sequelize, DataTypes) => {
         }
     });
 
-    Category.associate = (models) => {
-        // Associating Users with Menus
-        // When an User is deleted, also delete any associated Menus
-        Category.hasMany(models.MenuItem, {
-            onDelete: 'cascade'
-        });
-    };
-
     return Category;
 };
