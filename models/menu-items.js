@@ -1,6 +1,3 @@
-var bcrypt = require("bcryptjs");
-
-
 module.exports = (sequelize, DataTypes) => {
     const MenuItem = sequelize.define('MenuItem', {
         // Giving the User model a name of type STRING

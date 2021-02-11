@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS menu_maqrdb;
+
+CREATE DATABASE menu_maqrdb;
