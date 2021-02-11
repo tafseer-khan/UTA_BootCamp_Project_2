@@ -8,4 +8,10 @@ module.exports = (app) => {
             },
         }).then((results) => res.json(results))
     })
+
+    app.post('/api/:user_id', (req,res) => {
+        db.Menu.create({
+            
+        })
+    })
 }
