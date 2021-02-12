@@ -21,17 +21,33 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function loginUser(email, password) {
-        
-        fetch('/api/login', {
-            method: 'POST',headers: {
-                'Content-Type': 'application/json',
+        console.log(email, password);
+
+        fetch("/api/login", {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json"
             },
-            body: {
-                email: email,
-                password: password
-            }
-        }).then(res => {
-            console.log(res);
-        });
+            body:
+                JSON.stringify(
+                    {
+                        email: email,
+                        password: password
+
+                    }
+                )
+        })
+            .then(function () {
+                fetch('/login', {
+                    method: 'GET'
+                }).then(res => {
+                    location.reload();
+                });
+                // If there's an error, log the error
+            })
+            .catch(function (err) {
+                console.log(err);
+            })
     }
+
 })
