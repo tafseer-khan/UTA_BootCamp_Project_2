@@ -32,7 +32,7 @@ module.exports = (app) => {
         db.Menu.destroy({
             where:{
                 UserId: req.params.user_id,
-                id: req.params.id
+                id: req.params.menu_id
             }
         })
     })
@@ -57,9 +57,9 @@ module.exports = (app) => {
         db.MenuItem.create({
             name: req.body.name,
             description: req.body.description,
-            categroy: req.body.category,
+            category: req.body.category,
             img: req.body.img,
-            menuId: req.params.menu_id
+            MenuId: req.params.menu_id
         }).then((results) => res.json(results))
     })
 
