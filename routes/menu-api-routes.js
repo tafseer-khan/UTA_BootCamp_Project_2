@@ -10,7 +10,25 @@ module.exports = (app) => {
         }).then((results) => res.json(results))
     })
 
-    app.delete('/api/:user_id/:menu', (req,res) => {
+    app.get('/api/:user_id/menus:/menu_id', (req,res) =>{
+        db.Menu.findOne({
+            where: {
+                UserId: req.params.user_id,
+                id: req.params.menu_id
+
+            }
+        }).then((results) => res.json(results))
+    })
+
+    app.get('/api/:user_id/menus:/menu_id', (req,res) =>{
+        db.MenuItem.findAll({
+            where:{
+                MenuId: req.params.menu_id
+            }
+        }).then((results) => res.json(results))
+    })
+
+    app.delete('/api/:user_id/menus/:menu_id', (req,res) => {
         db.MenuItem.destroy({
             where: {
                 user_id: req.params.user_id,
