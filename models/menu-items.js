@@ -25,9 +25,5 @@ module.exports = (sequelize, DataTypes) => {
         }
     });
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 201c7db16d7aeaff5e2e7ee0bcb4cab4373eb06e
     return MenuItem;
 };

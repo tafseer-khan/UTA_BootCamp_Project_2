@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 )
         })
             .then(function (res) {
-                window.location.replace('/user')
+                window.location.replace('../userHome.html')
 
                 // If there's an error, log the error
             })

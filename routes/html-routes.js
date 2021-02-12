@@ -9,16 +9,13 @@ module.exports = function (app) {
   app.get("/", function (req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {
-      res.render('user');
+      res.sendFile('../public/html/userHome.html');
     }
     else {
-      res.render('index');
+      res.sendFile(path.join(__dirname, "../public/html/index.html"));
     }
   });
 
-  app.get('/signup', (req, res) => {
-    res.render('signup');
-  });
 
   app.get('/user', (req, res) => {
     console.log("in /user")
