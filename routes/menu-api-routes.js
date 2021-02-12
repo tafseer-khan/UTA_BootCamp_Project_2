@@ -10,7 +10,7 @@ module.exports = (app) => {
         }).then((results) => res.json(results))
     })
 
-    app.get('/api/:user_id/menus:/menu_id', (req,res) =>{
+    app.get('/api/:user_id/menus/:menu_id', (req,res) =>{
         db.Menu.findOne({
             where: {
                 UserId: req.params.user_id,
@@ -20,7 +20,7 @@ module.exports = (app) => {
         }).then((results) => res.json(results))
     })
 
-    app.get('/api/:user_id/menus:/menu_id', (req,res) =>{
+    app.get('/api/:user_id/menus/:menu_id/menuItems', (req,res) =>{
         db.MenuItem.findAll({
             where:{
                 MenuId: req.params.menu_id
@@ -28,11 +28,20 @@ module.exports = (app) => {
         }).then((results) => res.json(results))
     })
 
-    app.delete('/api/:user_id/menus/:menu_id', (req,res) => {
+    app.delete('/api/:user_id/menus/:menu_id', (req,res) =>{
+        db.Menu.destroy({
+            where:{
+                UserId: req.params.user_id,
+                id: req.params.id
+            }
+        })
+    })
+
+    app.delete('/api/:user_id/menus/:menu_id/menuItems', (req,res) => {
         db.MenuItem.destroy({
             where: {
-                user_id: req.params.user_id,
-                menu_id: req.params.menu_id
+                MenuId: req.params.menu_id,
+                id: req.body.id
             }
         }).then((results)=> res.json(results))
     })
