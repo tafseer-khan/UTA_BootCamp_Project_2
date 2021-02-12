@@ -14,8 +14,14 @@ module.exports = function(app) {
     res.render('index');
   });
 
+  app.get('/signup', (req, res) => {
+    console.log('in signup')
+    res.render('signup');
+  });
+
   app.get("/login", function(req, res) {
     // If the user already has an account send them to the members page
+    console.log(req.user);
     if (req.user) {
       res.render('menu', req.user);
     }

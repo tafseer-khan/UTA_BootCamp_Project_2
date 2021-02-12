@@ -19,7 +19,9 @@ module.exports = (app) => {
 
     app.post('/api/createUser', (req, res) => {
         console.log(req.body);
-        db.User.create(req.body).then((res) => {console.log(res.insertId)});
+        db.User.create(req.body).then((response) => {
+            res.json(response);
+        });
     })
 
 }
