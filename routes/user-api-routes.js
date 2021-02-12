@@ -1,5 +1,5 @@
 const db = require("../models");
-const passport = require("../config/passport");
+const passport = require("../config/passport.js");
 
 
 module.exports = (app) => {
@@ -13,6 +13,7 @@ module.exports = (app) => {
     });
 
     app.post("/api/login", passport.authenticate("local"), function(req, res) {
+        console.log(req.body);
         res.json(req.user);
       });
 

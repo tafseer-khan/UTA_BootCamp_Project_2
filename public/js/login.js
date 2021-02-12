@@ -1,36 +1,37 @@
 document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.getElementById('login');
-
     loginForm.addEventListener('submit', (e) => {
         e.preventDefault();
+        console.log('login btn clkd')
+
         const userData = {
-            username: document.getElementById('username'),
-            password: document.getElementById('password')
+            email: document.getElementById('email').value.trim(),
+            password: document.getElementById('password').value.trim()
         }
 
-        if (!userData.username || !userData.password) {
+        console.log(userData);
+
+        if (!userData.email || !userData.password) {
             return;
         }
 
-        loginUser(userData.username, userData.password);
-        username.val("");
-        passwordInput.val("");
+        loginUser(userData.email, userData.password);
+        email.value = "";
+        password.value = "";
     });
 
-    function loginUser(username, password) {
+    function loginUser(email, password) {
+        
         fetch('/api/login', {
-            method: 'POST',
-            headers: {
+            method: 'POST',headers: {
                 'Content-Type': 'application/json',
             },
-            body: {     
-                username: username,
+            body: {
+                email: email,
                 password: password
             }
-        }).then((res) => {
-            res.redirect('/menu');
-        }).catch((err) => {
-            console.log(err);
-        })
+        }).then(res => {
+            console.log(res);
+        });
     }
 })

@@ -1,3 +1,5 @@
+const { foreign_key } = require("inflection");
+
 module.exports = (sequelize, DataTypes) => {
     const MenuItem = sequelize.define('MenuItem', {
         // Giving the User model a name of type STRING
@@ -15,6 +17,9 @@ module.exports = (sequelize, DataTypes) => {
                 len: [15, 500]
             }
         },
+        category: {
+            type: DataTypes.STRING
+        },
         img: {
             type: DataTypes.STRING
         }
@@ -24,7 +29,10 @@ module.exports = (sequelize, DataTypes) => {
         // Associating Users with Menus
         // When an User is deleted, also delete any associated Menus
         MenuItem.hasOne(models.Category, {
-            onDelete: 'cascade'
+            onDelete: 'cascade',
+            foreignKey: {
+                allowNull: false,
+            }
         });
     };
 
