@@ -53,6 +53,16 @@ module.exports = (app) => {
         }).then((results) => res.json(results))
     })
 
+    app.post('/api/:user_id/menus/:menu_id/menuItems', (req,res) =>{
+        db.MenuItem.create({
+            name: req.body.name,
+            description: req.body.description,
+            categroy: req.body.category,
+            img: req.body.img,
+            menuId: req.params.menu_id
+        }).then((results) => res.json(results))
+    })
+
     app.put('/api/:user_id/:menu', (req,res) =>{
         db.MenuItem.put({
             where:{
