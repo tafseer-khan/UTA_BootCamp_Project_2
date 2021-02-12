@@ -1,12 +1,8 @@
-var bcrypt = require("bcryptjs");
-
-
 module.exports = (sequelize, DataTypes) => {
     const Menu = sequelize.define('Menu', {
       // Giving the User model a name of type STRING
       menuName: {
         type: DataTypes.STRING,
-        allowNull: false,
         validate: {
           len: [1]
         }
@@ -18,10 +14,15 @@ module.exports = (sequelize, DataTypes) => {
       // When an User is deleted, also delete any associated Menus
       Menu.hasMany(models.MenuItem, {
         onDelete: 'cascade',
+        // foreignKey: {
+        //   allowNull: false,
+        // },
       });
 
-      Menu.hasMany(models.Category, {
-          onDelete: 'cascade'
+      Menu.belongsTo(models.User, {
+        foreignKey: {
+          allowNull: false,
+        },
       });
     };
     
