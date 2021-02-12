@@ -22,7 +22,34 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Content-Type": "application/json"
             },
         }).then(res => {
-            console.log(res);
+            loginUser(newUser.email, newUser.password);
         })
     })
+
+    function loginUser(email, password) {
+        console.log(email, password);
+
+        fetch("/api/login", {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body:
+                JSON.stringify(
+                    {
+                        email: email,
+                        password: password
+
+                    }
+                )
+        })
+            .then(function (res) {
+                window.location.replace('/user')
+
+                // If there's an error, log the error
+            })
+            .catch(function (err) {
+                console.log(err);
+            })
+    }
 });
