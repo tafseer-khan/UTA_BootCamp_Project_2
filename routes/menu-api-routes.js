@@ -64,11 +64,20 @@ module.exports = (app) => {
     })
 
     app.put('/api/:user_id/:menu', (req,res) =>{
-        db.MenuItem.put({
+        db.Menu.put({
             where:{
-                user_id: req.params.user_id,
-                menu_id: req.params.menu_id
+                UserId: req.params.user_id,
+                id: req.params.menu_id
             }
         }).then((results) => res.json(results))
+    })
+
+    app.put('/api/:user_id/:menu/updateItem', (req,res) =>{
+        db.MenuItem.put({
+            where:{
+                MenuId: req.params.user_id,
+                id: req.body.id
+            }
+        })
     })
 }
