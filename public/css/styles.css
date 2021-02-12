@@ -6,6 +6,11 @@
     padding-left: 25px;
 }
 
+.loginButton {
+    width: fit-content;
+    white-space: nowrap;
+}
+
 .d-flex {
     padding-right: 25px;
 }
@@ -17,4 +22,8 @@ body {
 
 .jumbotron {
     padding-top: 25px;
+}
+
+.card-body {
+    color: #0D0D0D;
 }
