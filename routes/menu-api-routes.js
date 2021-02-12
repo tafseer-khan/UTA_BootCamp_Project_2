@@ -1,14 +1,11 @@
 const db = require("../models");
 
 module.exports = (app) => {
-    app.get('/api/:user_id/:menu', (req, res) => {
-        db.MenuItem.findAll({
+    app.get('/api/:user_id/menus', (req, res) => {
+        db.Menu.findAll({
             where: {
-                user_id: req.params.user_id,
-                menu_id: req.params.menu_id
-
-            },
-            include: [db.category],
+                UserId: req.params.user_id,
+            }
             
         }).then((results) => res.json(results))
     })
@@ -22,12 +19,19 @@ module.exports = (app) => {
         }).then((results)=> res.json(results))
     })
 
+    app.post('/api/:user_id/createMenus', (req,res) =>{
+        db.Menu.create({
+                UserId: req.params.user_id,
+                menuName: req.body.menuName
+        }).then((results) => res.json(results))
+    })
+
     app.put('/api/:user_id/:menu', (req,res) =>{
         db.MenuItem.put({
             where:{
                 user_id: req.params.user_id,
                 menu_id: req.params.menu_id
             }
-        })
+        }).then((results) => res.json(results))
     })
 }
