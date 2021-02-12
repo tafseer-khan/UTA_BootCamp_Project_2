@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap');
+
+.navbar-brand {
+    font-family: "Hammersmith One", sans-serif;
+    font-size: 30px;
+    padding-left: 25px;
+}
+
+.d-flex {
+    padding-right: 25px;
+}
+
+body {
+    background-color: #F6343F;
+    color: #F2F2F2;
+}
+
+.jumbotron {
+    padding-top: 25px;
+}
