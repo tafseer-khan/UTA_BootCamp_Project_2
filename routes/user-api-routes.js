@@ -9,16 +9,14 @@ module.exports = (app) => {
             where: {
                 id: user_id
             },
-        }).then((results) => res.json(results))
+        }).then((results) => res.json(results));
     });
 
     app.post("/api/login", passport.authenticate("local"), function(req, res) {
-        console.log(req.body);
         res.json(req.user);
       });
 
     app.post('/api/createUser', (req, res) => {
-        console.log(req.body);
         db.User.create(req.body).then((response) => {
             res.json(response);
         });
