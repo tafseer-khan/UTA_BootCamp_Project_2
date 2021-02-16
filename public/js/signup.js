@@ -39,13 +39,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     {
                         email: email,
                         password: password
-
                     }
                 )
         })
             .then(function (res) {
-                window.location.replace('../userHome.html')
-
+                window.location.replace('../userHome.html');
                 // If there's an error, log the error
             })
             .catch(function (err) {
@@ -53,3 +51,4 @@ document.addEventListener('DOMContentLoaded', () => {
             })
     }
 });
+
