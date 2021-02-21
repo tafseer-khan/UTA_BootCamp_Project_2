@@ -36,7 +36,7 @@
                     <div class="card-header">
                         My Items
                     </div>
-                    <ul class="list-group list-group-flush">
+                    <ul class="list-group list-group-flush menu-items">
                         <li class="list-group-item">placeholder 1</li>
                         <li class="list-group-item">placeholder 2</li>
                         <li class="list-group-item">placeholder 3</li>
@@ -48,21 +48,32 @@
                 <h3>Edit Item:</h3>
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Section Name:</label>
-                    <input type="text" class="form-control" id="exampleFormControlInput1"
-                        placeholder="Breakfast, Lunch, Dinner, etc.">
+                    <select name="categories" id="categories">
+                        <option value="apps">Appetizers</option>
+                        <option value="breakfast">Breakfast</option>
+                        <option value="lunch">Lunch</option>
+                        <option value="dinner">Dinner</option>
+                        <option value="drinks">Drinks</option>
+                        <option value="other">Other</option>
+                    </select>
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Dish name:</label>
-                    <input type="text" class="form-control" id="exampleFormControlInput1"
+                    <input type="text" class="form-control" id="dish-name"
                         placeholder="Huevos Rancheros, Mom's Spaghetti, etc.">
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Dish Description:</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
+                    <textarea class="form-control" id="description" rows="4"></textarea>
+                </div>
+                <div class="mb-3">
+                    <button id="add-item" class="btn btn-primary btn-lg" type="submit">Add Item</button>
+                    <button id="finish-menu" class="btn btn-primary btn-lg" type="submit">Finish Menu</button>
                 </div>
             </div>
         </div>
     </div>
+    <script src="js/createMenu.js"></script>
 </body>
 
 </html>
