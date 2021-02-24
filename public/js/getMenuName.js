@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const startMenu = document.getElementById('start-menu');
     startMenu.addEventListener('click', (e) => {
         e.preventDefault();
+        
 
         const menuName = document.getElementById('menu-name').value;
 

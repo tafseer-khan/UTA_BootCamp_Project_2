@@ -4,8 +4,10 @@ document.addEventListener('DOMContentLoaded', () => {
         credentials: 'include',
         method: 'GET'
     }).then(res => {
-        const user = res;
-        console.log(res.email);
-    });
-
-});
+        res.json().then(data =>({
+            id: data.id
+        })
+    ).then(res =>{
+        let myID = res.id
+        console.log(myID)
+    })})})
