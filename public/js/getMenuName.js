@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const newMenu = {
                     menuName: document.getElementById('newMenu').value.trim()
                 }
+                localStorage.setItem('mostRecent', newMenu.menuName);
                 console.log(menuName)
                 console.log(newMenu);
                 const myID = res.id
@@ -30,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         "Content-Type": "application/json"
                     }
                 }).then(res => {
-                    console.log(res);
+                    window.location.replace('../createMenu.html');
                 })
             }
 
