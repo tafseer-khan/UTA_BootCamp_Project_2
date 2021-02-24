@@ -30,6 +30,12 @@ body {
 
 .edit-item {
     padding-top: 25px;
-
-.menu-items{
+}
+.menu-items {
     color: #0D0D0D;
+}
+
+#chefphoto {
+    padding-top: 20px;
+    width: 100%;
+}

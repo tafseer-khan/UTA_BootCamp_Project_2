@@ -1,3 +1,4 @@
+
 let user;
 
 fetch('/api/user_data', {
