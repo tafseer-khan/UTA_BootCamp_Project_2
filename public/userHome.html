@@ -19,9 +19,9 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
     <!-- Bootstrap Stylesheet -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>    <link rel="stylesheet" href="/css/styles.css">
 </head>
 
 <body>
@@ -33,7 +33,7 @@
                 <input id="email" class="form-control me-2" type="text" placeholder="Username" aria-label="Username">
                 <input id="password" class="form-control me-2" type="password" placeholder="Password"
                     aria-label="Password">
-                <button class="btn btn-outline-secondary" type="submit">Log In</button>
+                <button class="btn btn-outline-secondary loginButton" type="submit">Log In</button>
             </form>
         </div>
     </nav>
@@ -42,21 +42,19 @@
         <div class="row">
 
             <!--Menu Created Dashboard-->
-            <div class="col-md-9">
-                <div class="card">
-                    <div class="card-body">
-                        <h2>Created Menus</h2>
-                        <!-- Have handlebars for created menus so they're listed here -->
-                        <!-- IMPORTANT **** Update VARIABLES HERE in Handlebars-->
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h3>{{menuName}}</h3>
-                                        <button class="btn btn-outline-secondary" type="submit">Edit Menu</button>
-                                    </div>
-                                </div>
-                                <!-- ADDED BY REAGAN FOR BACKEND STUFF, FEEL FREE TO MODIFY -->
+                <div class="col-md-9">
+                    <div class="card">
+                        <div class="card-body">
+                            <h2>Created Menus</h2>
+                            <!-- Have handlebars for created menus so they're listed here -->
+                            <!-- IMPORTANT **** Update VARIABLES HERE in Handlebars-->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h3>{{menuName}}</h3>
+                                            <button data-bs-toggle='collapse' data-bs-target="#menu-name" class="btn btn-outline-secondary" type="submit">Edit Menu</button>
+                                            <!-- ADDED BY REAGAN FOR BACKEND STUFF, FEEL FREE TO MODIFY -->
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-primary" data-toggle="modal"
                                     data-target="#createMenu">
@@ -88,25 +86,46 @@
                                         </div>
                                     </div>
                                 </div>
+                                            <div id='menu-name' class='collapse'>
+                                                    <!-- placeholder information, ids, etc. still need to be updated-->
+                                                    <h3 class="edit-item">Edit Item:</h3>
+                                                    <div class="mb-3">
+                                                        <label for="exampleFormControlInput1" class="form-label">Section Name:</label>
+                                                        <input type="text" class="form-control" id="exampleFormControlInput1"
+                                                            placeholder="Breakfast, Lunch, Dinner, etc.">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="exampleFormControlInput1" class="form-label">Dish name:</label>
+                                                        <input type="text" class="form-control" id="exampleFormControlInput2"
+                                                            placeholder="Huevos Rancheros, Mom's Spaghetti, etc.">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="exampleFormControlTextarea1" class="form-label">Dish Description:</label>
+                                                        <textarea class="form-control" id="exampleFormControlTextarea3" rows="4"></textarea>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-
-            <!-- QR Codes Dashbaord -->
-            <div class="col-md-3">
-                <div class="card">
-                    <div class="card-body">
-                        <h2>QR Codes</h2>
-                        <!-- Have handlebars for created QR's so they're listed here -->
-                        <!-- IMPORTANT **** Update VARIABLES HERE in Handlebars-->
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h3>{{qrCode}}</h3>
+    
+                <!-- QR Codes Dashbaord -->
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h2>QR Codes</h2>
+                            <!-- Have handlebars for created QR's so they're listed here -->
+                            <!-- IMPORTANT **** Update VARIABLES HERE in Handlebars-->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h3>{{qrCode}}</h3>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
