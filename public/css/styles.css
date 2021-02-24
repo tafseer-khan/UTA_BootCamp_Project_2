@@ -28,6 +28,9 @@ body {
     color: #0D0D0D;
 }
 
+.edit-item {
+    padding-top: 25px;
+
 .menu-items{
     color: #0D0D0D;
 }
@@ -37,3 +40,5 @@ body {
     width: 100%;
     opacity: 80%;
 }
+=======
+    color: #0D0D0D;
