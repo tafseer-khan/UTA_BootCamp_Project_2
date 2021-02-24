@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
             res.json().then(data => {
                 const userId = data.id;
                 renderAdded(userId);
-                console.log(data.email);
                 addItem.addEventListener('click', (e) => {
                     e.preventDefault;
             
@@ -27,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         category: section
                     };
             
-            
+                    console.log(newDish);
             
                     fetch(`/api/${userId}/menus/1/menuItems`, {
                         method: 'POST',

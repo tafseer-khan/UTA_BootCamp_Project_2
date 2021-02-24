@@ -5,12 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
     startMenu.addEventListener('click', (e) => {
         e.preventDefault()
 
-        const menuName = document.getElementById('menu-name').value;
-        const newMenu = {
-            menuName: menuName
-        }
-        console.log(menuName)
-        console.log(newMenu);
 
         fetch('/api/user_data', {
             credentials: 'include',
@@ -21,6 +15,12 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             ).then(res => {
                 // console.log(newMenu)
+
+                const newMenu = {
+                    menuName: document.getElementById('newMenu').value.trim()
+                }
+                console.log(menuName)
+                console.log(newMenu);
                 const myID = res.id
                 console.log(myID)
                 fetch(`/api/${myID}/createMenus`, {

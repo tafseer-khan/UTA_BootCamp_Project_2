@@ -1,7 +1,11 @@
 {
     "development": {
       "username": "root",
+<<<<<<< HEAD
+      "password": "reagan01",
+=======
       "password": "AzAq69SxSw",
+>>>>>>> 821c0e648dca8269ff97df6e3abb800d455a42c1
       "database": "menu_maqrdb",
       "host": "127.0.0.1",
       "port": 3306,
