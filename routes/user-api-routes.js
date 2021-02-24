@@ -15,11 +15,12 @@ module.exports = (app) => {
     });
   })
 
-  app.get("/api/user_data", function (req, res) {
+  app.get('/api/user_data', function (req, res) {
     if (!req.user) {
       // The user is not logged in, send back an empty object
       res.json({});
     } else {
+      console.log('logged in')
       // Otherwise send back the user's email and id
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
@@ -27,15 +28,6 @@ module.exports = (app) => {
         id: req.user.id
       });
     }
-  });
-
-  app.get('/api/:user_id', (req, res) => {
-    const user_id = req.params.user_id;
-    db.User.findAll({
-      where: {
-        id: user_id
-      },
-    }).then((results) => res.json(results));
   });
 
 }
