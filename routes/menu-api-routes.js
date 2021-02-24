@@ -1,12 +1,22 @@
 const db = require("../models");
 
 module.exports = (app) => {
+    
+
     app.get('/api/:user_id/menus', (req, res) => {
         db.Menu.findAll({
             where: {
                 UserId: req.params.user_id,
             }
             
+        }).then((results) => res.json(results))
+    })
+
+    app.get('/api/:user_id/menus/:menu_id/menuItems', (req,res) =>{
+        db.MenuItem.findAll({
+            where:{
+                MenuId: req.params.menu_id
+            }
         }).then((results) => res.json(results))
     })
 
@@ -20,13 +30,7 @@ module.exports = (app) => {
         }).then((results) => res.json(results))
     })
 
-    app.get('/api/:user_id/menus/:menu_id/menuItems', (req,res) =>{
-        db.MenuItem.findAll({
-            where:{
-                MenuId: req.params.menu_id
-            }
-        }).then((results) => res.json(results))
-    })
+    
 
     app.delete('/api/:user_id/menus/:menu_id', (req,res) =>{
         db.Menu.destroy({

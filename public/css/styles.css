@@ -28,6 +28,14 @@ body {
     color: #0D0D0D;
 }
 
-.menu-items{
+.edit-item {
+    padding-top: 25px;
+}
+.menu-items {
     color: #0D0D0D;
+}
+
+#chefphoto {
+    padding-top: 20px;
+    width: 100%;
 }

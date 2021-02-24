@@ -17,12 +17,12 @@
     <!-- Navigation -->
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand">Menu MaQ'R</a>
+            <img src="images/logo.png" alt="Menu Maqr's Logo">
             <form class="d-flex" id="login">
                 <input id="email" class="form-control me-2" type="text" placeholder="Username" aria-label="Username">
                 <input id="password" class="form-control me-2" type="password" placeholder="Password"
                     aria-label="Password">
-                <button class="btn btn-outline-secondary" type="submit">Log In</button>
+                <button class="btn btn-outline-secondary loginButton" type="submit">Log In</button>
             </form>
         </div>
     </nav>
@@ -33,10 +33,10 @@
                 <!-- placeholder items still need to be updated -->
                 <h3 class='added-items'>Added Items</h3>
                 <div class="card" style="width: 18rem;">
-                    <div class="card-header">
+                    <div class="card-header" style="color: black;">
                         My Items
                     </div>
-                    <ul class="list-group list-group-flush menu-items">
+                    <ul id="menu-items" class="list-group list-group-flush menu-items">
                         <li class="list-group-item">placeholder 1</li>
                         <li class="list-group-item">placeholder 2</li>
                         <li class="list-group-item">placeholder 3</li>
@@ -74,6 +74,7 @@
         </div>
     </div>
     <script src="js/createMenu.js"></script>
+    <script src="js/getUserData.js"></script>
 </body>
 
 </html>
