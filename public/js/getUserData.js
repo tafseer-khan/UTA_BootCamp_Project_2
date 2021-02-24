@@ -1,4 +1,5 @@
 
+
 let user;
 
 fetch('/api/user_data', {
@@ -17,5 +18,6 @@ fetch('/api/user_data', {
 
     });
 })
+
 
 
