@@ -84,4 +84,11 @@ module.exports = (app) => {
             MenuId: req.params.menu_id
         })
     })
+    app.get('/api/:user_id/:menu_name/', (req,res) => {
+        db.Menu.findOne({
+            where:{
+                menuName: req.params.menu_name
+            }
+        })
+    })
 }

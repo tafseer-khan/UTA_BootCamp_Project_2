@@ -8,6 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
             id: data.id
         })
     ).then(res =>{
-        let myID = res.id
+        const myID = res.id
         console.log(myID)
     })})})
