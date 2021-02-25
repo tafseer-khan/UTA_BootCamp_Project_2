@@ -20,6 +20,14 @@ module.exports = (app) => {
         }).then((results) => res.json(results))
     })
 
+    app.get('/api/menus/:menu_id/menuItems', (req, res) => {
+        db.MenuItem.findAll({
+            where: {
+                MenuId: req.params.menu_id
+            }
+        }).then(result => res.json(result))
+    })
+
     app.get('/api/:user_id/menus/:menu_id', (req,res) =>{
         db.Menu.findOne({
             where: {
@@ -28,6 +36,14 @@ module.exports = (app) => {
 
             }
         }).then((results) => res.json(results))
+    })
+
+    app.get('/api/menus/:menu_id', (req, res) => {
+        db.Menu.findOne({
+            where: {
+                id: req.params.menu_id
+            }
+        }).then(results => res.json(results));
     })
 
     
