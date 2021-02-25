@@ -1,65 +1,4 @@
-
-document.addEventListener('DOMContentLoaded', () => {
-    const mostRecent = localStorage.getItem('mostRecent');
-    const addItem = document.getElementById('add-item');
-    const finish = document.getElementById('finish-menu');
-
-    console.log(mostRecent);
-    fetch(`/api/${mostRecent}/menuinfo`, {
-        method: 'GET'
-    }).then(res => {
-        res.json().then(data => {
-            const { id } = data;
-            const menuID = id;
-            console.log(menuID)
-            fetch('/api/user_data', {
-                method: 'GET',
-                headers: {
-                    "Content-Type": "application/json"
-                }
-            }).then(res => {
-                res.json().then(data => {
-                    const userId = data.id;
-                    renderAdded(userId, menuID);
-                    addItem.addEventListener('click', (e) => {
-                        e.preventDefault;
-
-                        const section = document.getElementById('categories').value;
-                        const dishName = document.getElementById('dish-name').value.trim();
-                        const description = document.getElementById('description').value.trim();
-                        const price = document.getElementById('price').value.trim();
-
-                        console.log(section, dishName, description);
-
-                        const newDish = {
-                            name: dishName,
-                            description: description,
-                            category: section,
-                            price: price
-                        };
-
-                        console.log(newDish);
-
-                        fetch(`/api/${userId}/menus/${menuID}/menuItems`, {
-                            method: 'POST',
-                            headers: {
-                                "Content-Type": "application/json"
-                            },
-                            body: JSON.stringify(newDish)
-                        }).then(res => {
-                            document.getElementById('dish-name').value = '';
-                            document.getElementById('description').value = '';
-                            document.getElementById('price').value = '';
-                            renderAdded(userId, menuID);
-                        })
-
-                    })
-
-                    finish.addEventListener('click', (e) => {
-                        const fs = require('fs');
-                        const path = require('path');
-
-                        let htmlContent = `<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -70,14 +9,14 @@ document.addEventListener('DOMContentLoaded', () => {
     <!-- Bootstrap Stylesheet -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
             <!-- <a class="navbar-brand">Menu MaQ'R</a> -->
-            <a href="index.html"><img src="images/logored.png" alt="Menu Maqr's Logo"></a>
+            <a href="index.html"><img src="../images/logored.png" alt="Menu Maqr's Logo"></a>
             <form class="d-flex" id="login">
                 <input id="email" class="form-control me-2" type="text" placeholder="Username" aria-label="Username">
                 <input id="password" class="form-control me-2" type="password" placeholder="Password"
@@ -162,48 +101,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             </div>
         </div>
+        <script src="js/generateMenu.js"></script>
 </body>
-</html>`;
-
-                        console.log(htmlContent);
-                        fs.writeFile(path.join(__dirname, "../menus/newMenu.html"), htmlContent, (err) => {
-                            console.log('created')
-                            if (err) {
-                                throw err;
-                            }
-                        });
-                        window.location.replace('./userHome.html')
-                    })
-                });
-            })
-        })
-    })
-
-
-});
-
-const renderAdded = (userId, menuID) => {
-    console.log('in render')
-    fetch(`api/${userId}/menus/${menuID}/menuItems`, {
-        method: 'GET',
-        headers: {
-            "Content-Type": "application/json"
-        }
-    }).then(res => {
-        res.json().then(data => {
-            console.log(data);
-            const menuItems = document.getElementById('menu-items');
-            menuItems.innerHTML = ""
-
-            for (let i = 0; i < data.length; i++) {
-                const newItem = document.createElement("li");
-                newItem.textContent = data[i].name;
-                newItem.classList.add('list-group-item')
-                newItem.style.color = 'black';
-                menuItems.appendChild(newItem);
-            }
-
-        })
-    })
-}
-
+</html>
