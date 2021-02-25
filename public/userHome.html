@@ -28,7 +28,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
-            <img src="images/logo.png" alt="Menu Maqr's Logo">
+            <a href="index.html"><img src="images/logo.png" alt="Menu Maqr's Logo"></a>
             <form class="d-flex" id="login">
                 <input id="email" class="form-control me-2" type="text" placeholder="Username" aria-label="Username">
                 <input id="password" class="form-control me-2" type="password" placeholder="Password"
@@ -45,6 +45,9 @@
                 <div class="col-md-9">
                     <div class="card">
                         <div class="card-body">
+                            <h1> Hi, Frank!</h1>
+                            <br>
+
                             <h2>Created Menus</h2>
                             <!-- Have handlebars for created menus so they're listed here -->
                             <!-- IMPORTANT **** Update VARIABLES HERE in Handlebars-->
@@ -52,8 +55,8 @@
                                 <div class="col-md-12">
                                     <div class="card" id="menuName">
                                         <div class="card-body">
-                                            <h3></h3>
-                                            <button data-bs-toggle='collapse' data-bs-target="#menu-name" class="btn btn-outline-secondary" type="submit">Edit Menu</button>
+                                            <h3>El Toro Tex Mex</h3>
+                                            <button data-bs-toggle='collapse' data-bs-target="#menu-name" class="btn btn-outline-secondary editBtn" type="submit">Edit Menu</button>
                         
                                             <div id='menu-name' class='collapse'>
                                                     <!-- placeholder information, ids, etc. still need to be updated-->
@@ -81,7 +84,7 @@
 
                                 <!-- ADDED BY REAGAN FOR BACKEND STUFF, FEEL FREE TO MODIFY -->
                                 <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                <button type="button" class="btn btn-primary createBtn" data-toggle="modal"
                                 data-target="#createMenu">
                                 Create Menu
                                 </button>
