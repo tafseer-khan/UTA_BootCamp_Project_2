@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     const mostRecent = localStorage.getItem('mostRecent');
     const addItem = document.getElementById('add-item');
+    const finishMenu = document.getElementById('finish-menu')
+
     console.log(mostRecent);
     fetch(`/api/${mostRecent}/menuinfo`, {
         method: 'GET'
@@ -53,6 +55,22 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     })
 
+    // finishMenu.addEventListener('click', (e) => {
+    //     e.preventDefault()
+    //     var QRCode = require('qrcode')
+    //     make =()=>{
+    //         QRCode.toString("https://www.npmjs.com/package/qrcode",{type:'terminal'},(err,url) =>{
+    //         return url
+    //     })
+    //     }
+        
+    //     make().then((data)=>{
+    //         console.log(data)
+    //     })
+        
+
+
+    // })
 
 
 });
