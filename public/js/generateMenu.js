@@ -59,6 +59,16 @@ document.addEventListener('DOMContentLoaded', () => {
                         dessertList.appendChild(li);
                         break;
                 }
+
+                fetch(`/api/menus/${menuId}`, {
+                    method:'GET'
+                }).then(res => {
+                    res.json().then(data => {
+                        const menuName = data.menuName;
+                    console.log(data);
+                    document.getElementById('menu-name').textContent = menuName
+                    })
+                })
             }
         })
     })
