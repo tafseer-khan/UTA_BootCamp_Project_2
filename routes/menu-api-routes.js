@@ -84,19 +84,10 @@ module.exports = (app) => {
         }).then((results) => res.json(results))
     })
 
-    app.put('/api/:user_id/:menu_id', (req,res) =>{
-        db.Menu.put({
-            where:{
-                UserId: req.params.user_id,
-                id: req.params.menu_id
-            },
-            menuName: req.body.menuName,
-            UserId: req.params.user_id
-        }).then((results) => res.json(results))
-    })
+
 
     app.put('/api/:user_id/:menu_id/updateItem', (req,res) =>{
-        db.MenuItem.put({
+        db.MenuItem.update({
             where:{
                 MenuId: req.params.user_id,
                 id: req.body.id
@@ -105,14 +96,15 @@ module.exports = (app) => {
             MenuId: req.params.menu_id
         })
     })
-    app.put('/api/:menu_name/addQR',(req,res) =>{
-        db.Menu.put({
-            where:{
-                menuName: req.params.menu_name
-            },
-            qr: req.body.qrLink
-        })
+    app.put('/api/maybe/:menu_name/addQR', (req) =>{
+        var values = {qr: req.body.qrLink}
+        var condition = {where: {menuName:req.params.menu_name}}
+        options = {multi:true}
+        db.Menu.update(
+            values,condition,options
+        ).then((upresult)=>{})
     })
+
     app.get('/api/:menu_name/menuinfo', (req,res) => {
         db.Menu.findOne({
             where:{

@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
       },
       qr:{
-        type: DataTypes.STRING
+        type: DataTypes.TEXT
       }
     });
   
