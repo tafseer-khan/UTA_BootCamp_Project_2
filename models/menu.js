@@ -7,6 +7,9 @@ module.exports = (sequelize, DataTypes) => {
           len: [1]
         },
         allowNull: false,
+      },
+      qr:{
+        type: DataTypes.STRING
       }
     });
   
