@@ -30,6 +30,14 @@ module.exports = (app) => {
         }).then((results) => res.json(results))
     })
 
+    app.get('api/menus/:menu_id', (req, res) => {
+        db.Menu.findOne({
+            where: {
+                id: req.params.menu_id
+            }
+        }).then(results => res.json(results));
+    })
+
     
 
     app.delete('/api/:user_id/menus/:menu_id', (req,res) =>{
