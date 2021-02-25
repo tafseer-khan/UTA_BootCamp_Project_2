@@ -62,6 +62,7 @@ module.exports = (app) => {
             name: req.body.name,
             description: req.body.description,
             category: req.body.category,
+            price: req.body.price,
             img: req.body.img,
             MenuId: req.params.menu_id
         }).then((results) => res.json(results))

@@ -41,7 +41,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 fetch('/login', {
                     method: 'GET'
                 }).then(res => {
-                    location.reload();
+                    if(res.status === 200){
+                        window.location.replace('./userHome.html')
+                    }
                 });
                 // If there's an error, log the error
             })

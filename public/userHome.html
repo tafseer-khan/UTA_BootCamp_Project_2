@@ -28,7 +28,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
-            <img src="images/logo.png" alt="Menu Maqr's Logo">
+            <a href="index.html"><img src="images/logored.png" alt="Menu Maqr's Logo"></a>
             <form class="d-flex" id="login">
                 <input id="email" class="form-control me-2" type="text" placeholder="Username" aria-label="Username">
                 <input id="password" class="form-control me-2" type="password" placeholder="Password"
@@ -45,35 +45,41 @@
                 <div class="col-md-9">
                     <div class="card">
                         <div class="card-body">
+                            <h1 id='first-name'> Hi, Frank!</h1>
+                            <br>
+
                             <h2>Created Menus</h2>
                             <!-- Have handlebars for created menus so they're listed here -->
                             <!-- IMPORTANT **** Update VARIABLES HERE in Handlebars-->
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="card" id="menuName">
-                                        <div class="card-body">
-                                            <h3></h3>
-                                            <button data-bs-toggle='collapse' data-bs-target="#menu-name" class="btn btn-outline-secondary" type="submit">Edit Menu</button>
+                                        <ul id="menus">
+                                            <li class="card-body">
+                                                <h3>El Toro Tex Mex</h3>
+                                                <button data-bs-toggle='collapse' data-bs-target="#menu-name" class="btn btn-outline-secondary editBtn" type="submit">Edit Menu</button>
+                                            </li>
+                                        </ul>
+                                            
                         
-                                            <div id='menu-name' class='collapse'>
+                                            <!-- <div id='menu-name' class='collapse'> -->
                                                     <!-- placeholder information, ids, etc. still need to be updated-->
-                                                    <h3 class="edit-item">Edit Item:</h3>
-                                                    <div class="mb-3">
-                                                        <label for="exampleFormControlInput1" class="form-label">Section Name:</label>
-                                                        <input type="text" class="form-control" id="exampleFormControlInput1"
-                                                            placeholder="Breakfast, Lunch, Dinner, etc.">
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="exampleFormControlInput1" class="form-label">Dish name:</label>
-                                                        <input type="text" class="form-control" id="exampleFormControlInput2"
-                                                            placeholder="Huevos Rancheros, Mom's Spaghetti, etc.">
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="exampleFormControlTextarea1" class="form-label">Dish Description:</label>
-                                                        <textarea class="form-control" id="exampleFormControlTextarea3" rows="4"></textarea>
-                                                    </div>
-                                            </div>
-                                        </div>
+                                                    <!-- <h3 class="edit-item">Edit Item:</h3> -->
+                                                    <!-- <div class="mb-3"> -->
+                                                        <!-- <label for="exampleFormControlInput1" class="form-label">Section Name:</label> -->
+                                                        <!-- <input type="text" class="form-control" id="exampleFormControlInput1" -->
+                                                            <!-- placeholder="Breakfast, Lunch, Dinner, etc."> -->
+                                                    <!-- </div> -->
+                                                    <!-- <div class="mb-3"> -->
+                                                        <!-- <label for="exampleFormControlInput1" class="form-label">Dish name:</label> -->
+                                                        <!-- <input type="text" class="form-control" id="exampleFormControlInput2" -->
+                                                            <!-- placeholder="Huevos Rancheros, Mom's Spaghetti, etc."> -->
+                                                    <!-- </div> -->
+                                                    <!-- <div class="mb-3"> -->
+                                                        <!-- <label for="exampleFormControlTextarea1" class="form-label">Dish Description:</label> -->
+                                                        <!-- <textarea class="form-control" id="exampleFormControlTextarea3" rows="4"></textarea> -->
+                                                    <!-- </div> -->
+                                            <!-- </div> -->
                                     </div>
 
 
@@ -81,7 +87,7 @@
 
                                 <!-- ADDED BY REAGAN FOR BACKEND STUFF, FEEL FREE TO MODIFY -->
                                 <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                <button type="button" class="btn btn-primary createBtn" data-toggle="modal"
                                 data-target="#createMenu">
                                 Create Menu
                                 </button>
@@ -148,6 +154,8 @@
 
     <script src="js/getUserData.js"></script>
     <script src="js/getMenuName.js"></script>
+    <script src="js/getCreatedMenus.js"></script>
+    <script src="js/editMenu.js"></script>
 </body>
 
 </html>

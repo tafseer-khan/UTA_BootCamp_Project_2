@@ -1,5 +1,3 @@
-const { foreign_key } = require("inflection");
-
 module.exports = (sequelize, DataTypes) => {
     const MenuItem = sequelize.define('MenuItem', {
         // Giving the User model a name of type STRING
@@ -16,6 +14,9 @@ module.exports = (sequelize, DataTypes) => {
             validate: {
                 len: [10, 500]
             }
+        },
+        price: {
+            type: DataTypes.STRING
         },
         category: {
             type: DataTypes.STRING
