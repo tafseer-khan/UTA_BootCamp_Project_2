@@ -1,19 +1,50 @@
 const finishMenu = document.getElementById('finish-menu')
 const mostRecent = localStorage.getItem('mostRecent')
-const canvas = document.getElementById('canvas')
+// const mysql = require('mysql');
+// const connection = mysql.createConnection({
+//     host: 'localhost',
+//     port: 3306,
+//     user: 'root',
+//     password: 'AzAq69SxSw',
+//     database: "menu_maqrdb"
+// })
 finishMenu.addEventListener('click', (e) => {
     e.preventDefault()
     var QRCode = require('qrcode')
-    QRCode.toString("https://www.npmjs.com/package/qrcode",{type:'terminal'},(err,url) =>{
-    console.log(url)
+    fetch(`/api/${mostRecent}/menuinfo`, {
+        method: 'GET',
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).then(res => {
+        res.json().then(data => ({
+            id: data.id
+        }
+        ))
     }).then(
-        fetch(`/api/${mostRecent}/addQR`,{
-            method: 'PUT',
-            headers: {
-                "Content-Type": "application/json"
-            }
+        QRCode.toString("localhost:8080/menu"+`${id}`, { type: 'terminal' }, (err, url) => {
+            console.log(url)
+            console.log(id)
+            const newQR ={
+                qrLink: url
+            }  
+            console.log(JSON.stringify(newQR))
+            // connection.query('UPDATE FROM menu_maqrdb SET ? WHERE ?',
+            // [
+            //     {qr: "nice"},
+            //     {menuName: `${mostRecent}`}
+            // ])
+
+            fetch(`/api/maybe/${mostRecent}/addQR`, {
+                    method: 'PUT',
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(newQR)
+                }).then(response =>response.json())
         })
 
     )
+
 
 })
