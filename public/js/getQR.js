@@ -23,7 +23,9 @@ finishMenu.addEventListener('click', (e) => {
         
         ))
     }).then(
+
         QRCode.toString("https://menumaqr.herokuapp.com/menus/"+`${id}`+".html", { type: 'terminal' }, (err, url) => {
+
             console.log(url)
             console.log(id)
             const newQR ={
