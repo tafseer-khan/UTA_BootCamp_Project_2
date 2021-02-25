@@ -43,6 +43,15 @@ margin-bottom: 20px;
     margin-top: 20px;
 }
 
+.menucard {
+    margin-bottom: 20px;
+}
+
+.dish-name, .price {
+    color: #F6343F;
+}
+
+
 #chefphoto {
     padding-top: 20px;
     width: 100%;
@@ -54,6 +63,11 @@ margin-bottom: 20px;
     width: 75%;
     margin: 0 auto;
     margin-top: 40px;
+}
+
+#menu-name {
+    color: #F6343F;
+    margin-bottom: 20px;
 }
 
 #menu ul{
