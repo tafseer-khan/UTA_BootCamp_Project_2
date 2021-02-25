@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         let btn = document.createElement('button');
                         btn.classList.add('btn');
                         btn.classList.add('btn-outline-secondary');
+                        btn.id = 'edit';
                         btn.setAttribute('data-menu', data[i].menuName)
                         btn.textContent = 'Edit Menu'
                         li.appendChild(btn);

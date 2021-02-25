@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const mostRecent = localStorage.getItem('mostRecent');
     const addItem = document.getElementById('add-item');
     const finish = document.getElementById('finish-menu');
+
     console.log(mostRecent);
     fetch(`/api/${mostRecent}/menuinfo`, {
         method: 'GET'
@@ -25,13 +26,15 @@ document.addEventListener('DOMContentLoaded', () => {
                         const section = document.getElementById('categories').value;
                         const dishName = document.getElementById('dish-name').value.trim();
                         const description = document.getElementById('description').value.trim();
+                        const price = document.getElementById('price').value.trim();
 
                         console.log(section, dishName, description);
 
                         const newDish = {
                             name: dishName,
                             description: description,
-                            category: section
+                            category: section,
+                            price: price
                         };
 
                         console.log(newDish);
@@ -43,8 +46,9 @@ document.addEventListener('DOMContentLoaded', () => {
                             },
                             body: JSON.stringify(newDish)
                         }).then(res => {
-                            document.getElementById('dish-name').value = ''
-                            document.getElementById('description').value = ''
+                            document.getElementById('dish-name').value = '';
+                            document.getElementById('description').value = '';
+                            document.getElementById('price').value = '';
                             renderAdded(userId, menuID);
                         })
 
@@ -58,6 +62,22 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     })
 
+    // finishMenu.addEventListener('click', (e) => {
+    //     e.preventDefault()
+    //     var QRCode = require('qrcode')
+    //     make =()=>{
+    //         QRCode.toString("https://www.npmjs.com/package/qrcode",{type:'terminal'},(err,url) =>{
+    //         return url
+    //     })
+    //     }
+        
+    //     make().then((data)=>{
+    //         console.log(data)
+    //     })
+        
+
+
+    // })
 
 
 });
