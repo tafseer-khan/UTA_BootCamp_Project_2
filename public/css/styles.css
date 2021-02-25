@@ -20,6 +20,10 @@ margin-bottom: 20px;
     padding-left: 25px;
 }
 
+.hide{
+    display: none;
+}
+
 .loginButton {
     width: fit-content;
     white-space: nowrap;
