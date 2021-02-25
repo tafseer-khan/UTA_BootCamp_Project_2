@@ -5414,11 +5414,8 @@ finishMenu.addEventListener('click', (e) => {
         }
         ))
     }).then(
-<<<<<<< HEAD
-        QRCode.toString("localhost:8080/menu"+`${id}`, { type: 'terminal' }, (err, url) => {
-=======
         QRCode.toString("https://menumaqr.herokuapp.com/public/menus/"+`${id}`+".html", { type: 'terminal' }, (err, url) => {
->>>>>>> parent of ecf4655 (no public)
+
             console.log(url)
             console.log(id)
             const newQR ={
