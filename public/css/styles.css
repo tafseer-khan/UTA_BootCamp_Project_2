@@ -47,3 +47,31 @@ margin-bottom: 20px;
     padding-top: 20px;
     width: 100%;
 }
+
+#menu{
+    text-align: center;
+    color: black;
+    width: 75%;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+
+#menu ul{
+    list-style-type: none;
+}
+
+#menu h1{
+    font-size: 100px;
+}
+
+#menu h2{
+    font-size: 75px;
+}
+
+#menu h3{
+    font-size: 50px;
+}
+
+#menu p {
+    font-size: 25px;
+}
