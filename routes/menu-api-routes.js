@@ -89,6 +89,14 @@ module.exports = (app) => {
             MenuId: req.params.menu_id
         })
     })
+    app.put('/api/:menu_name/addQR',(req,res) =>{
+        db.Menu.put({
+            where:{
+                menuName: req.params.menu_name
+            },
+            qr: req.body.qrLink
+        })
+    })
     app.get('/api/:menu_name/menuinfo', (req,res) => {
         db.Menu.findOne({
             where:{

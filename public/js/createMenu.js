@@ -179,6 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     })
 
+<<<<<<< HEAD
     // finishMenu.addEventListener('click', (e) => {
     //     e.preventDefault()
     //     var QRCode = require('qrcode')
@@ -196,6 +197,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // })
 
+=======
+>>>>>>> bea807b2d54ef61f6a638954abb24696e288dfdd
 
 });
 
