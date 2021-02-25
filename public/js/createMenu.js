@@ -25,13 +25,15 @@ document.addEventListener('DOMContentLoaded', () => {
                         const section = document.getElementById('categories').value;
                         const dishName = document.getElementById('dish-name').value.trim();
                         const description = document.getElementById('description').value.trim();
+                        const price = document.getElementById('price').value.trim();
 
                         console.log(section, dishName, description);
 
                         const newDish = {
                             name: dishName,
                             description: description,
-                            category: section
+                            category: section,
+                            price: price
                         };
 
                         console.log(newDish);
@@ -43,8 +45,9 @@ document.addEventListener('DOMContentLoaded', () => {
                             },
                             body: JSON.stringify(newDish)
                         }).then(res => {
-                            document.getElementById('dish-name').value = ''
-                            document.getElementById('description').value = ''
+                            document.getElementById('dish-name').value = '';
+                            document.getElementById('description').value = '';
+                            document.getElementById('price').value = '';
                             renderAdded(userId, menuID);
                         })
 
