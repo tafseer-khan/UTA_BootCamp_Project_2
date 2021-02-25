@@ -54,6 +54,12 @@ margin-bottom: 20px;
     font-weight: bold;
 }
 
+@media screen and  (max-width:767px) {
+    .qrmaincard{
+        margin-top: 20px;
+    }
+}
+
 /* ID's */
 
 #chefphoto {
