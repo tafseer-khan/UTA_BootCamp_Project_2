@@ -17,6 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 res.json().then(data => {
                     console.log(data);
                     const menuList = document.getElementById('menus');
+                    const qrList = document.getElementById('qr-list');
+                    qrList.innerHTML = '';
                     menuList.innerHTML = '';
                     if (data.length === 0){
                         menuList.innerHTML = 'Please create a menu to get started'
@@ -37,6 +39,24 @@ document.addEventListener('DOMContentLoaded', () => {
                         btn.setAttribute('data-menu', data[i].menuName)
                         btn.textContent = 'Edit Menu'
                         li.appendChild(btn);
+
+                        let qrLI = document.createElement('li');
+                        qrList.appendChild(qrLI);
+                        qrLI.style.listStyleType = 'none';
+
+
+                        let qrName = document.createElement('h3');
+                        qrLI.appendChild(qrName);
+                        qrName.textContent = data[i].menuName;
+
+                        let qrCode = document.createElement('div');
+                        qrLI.appendChild(qrCode);
+                        qrCode.classList.add('qr-code');
+                        qrCode.innerHTML = data[i].qr;
+
+
+
+
                     }
                 })
             })
