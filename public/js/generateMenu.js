@@ -1,15 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
     let url = window.location.href;
     url = url.split('/');
-    console.log();
     let menuId = url[url.length - 1];
     menuId = menuId[0];
-    console.log(menuId);
+    let foundApp, foundLunch, foundBreak, foundDinner, foundDessert;
     fetch(`/api/menus/${menuId}/menuItems`, {
         method: 'GET'
     }).then(res => {
         res.json().then(data => {
-            console.log(data)
             const appList = document.getElementById('apps-list');
             appList.innerHTML = '';
             const breakList = document.getElementById('break-list');
@@ -44,19 +42,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 switch (category) {
                     case 'apps':
                         appList.appendChild(li);
-                        console.log('append apps')
+                        console.log('append apps');
+                        foundApp = true;
                         break;
                     case 'breakfast':
                         breakList.appendChild(li);
+                        foundBreak = true;
                         break;
                     case 'lunch':
                         lunchList.appendChild(li);
+                        foundLunch = true;
                         break;
                     case 'dinner':
                         dinnerList.appendChild(li);
+                        foundDinner = true;
                         break;
                     case 'dessert':
                         dessertList.appendChild(li);
+                        foundDessert = true;
                         break;
                 }
 
@@ -66,7 +69,22 @@ document.addEventListener('DOMContentLoaded', () => {
                     res.json().then(data => {
                         const menuName = data.menuName;
                     console.log(data);
-                    document.getElementById('menu-name').textContent = menuName
+                    document.getElementById('menu-name').textContent = menuName;
+                    if(!foundApp){
+                        document.getElementById('apps').classList.add('hide');
+                    }
+                    if(!foundBreak){
+                        document.getElementById('breakfast').classList.add('hide');
+                    }
+                    if(!foundLunch){
+                        document.getElementById('lunches').classList.add('hide');
+                    }
+                    if(!foundDinner){
+                        document.getElementById('dinner').classList.add('hide');
+                    }
+                    if(!foundDessert){
+                        document.getElementById('dessert').classList.add('hide');
+                    }
                     })
                 })
             }
