@@ -179,26 +179,6 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     })
 
-<<<<<<< HEAD
-    // finishMenu.addEventListener('click', (e) => {
-    //     e.preventDefault()
-    //     var QRCode = require('qrcode')
-    //     make =()=>{
-    //         QRCode.toString("https://www.npmjs.com/package/qrcode",{type:'terminal'},(err,url) =>{
-    //         return url
-    //     })
-    //     }
-
-    //     make().then((data)=>{
-    //         console.log(data)
-    //     })
-
-
-
-    // })
-
-=======
->>>>>>> bea807b2d54ef61f6a638954abb24696e288dfdd
 
 });
 
