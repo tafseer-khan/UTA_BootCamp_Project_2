@@ -30,7 +30,7 @@ module.exports = (app) => {
         }).then((results) => res.json(results))
     })
 
-    app.get('api/menus/:menu_id', (req, res) => {
+    app.get('/api/menus/:menu_id', (req, res) => {
         db.Menu.findOne({
             where: {
                 id: req.params.menu_id

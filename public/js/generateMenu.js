@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let menuId = url[url.length - 1];
     menuId = menuId[0];
     console.log(menuId);
-    fetch(`api/menus/${menuId}`, {
+    fetch(`/api/menus/${menuId}`, {
         method: 'GET'
     }).then(res => {
         res.json().then(data => {
