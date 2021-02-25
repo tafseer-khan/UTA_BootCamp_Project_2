@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const mostRecent = localStorage.getItem('mostRecent');
     const addItem = document.getElementById('add-item');
+    const finish = document.getElementById('finish-menu');
     console.log(mostRecent);
     fetch(`/api/${mostRecent}/menuinfo`, {
         method: 'GET'
@@ -47,6 +48,10 @@ document.addEventListener('DOMContentLoaded', () => {
                             renderAdded(userId, menuID);
                         })
 
+                    })
+
+                    finish.addEventListener('click', (e) => {
+                        window.location.replace('./userHome.html')
                     })
                 });
             })

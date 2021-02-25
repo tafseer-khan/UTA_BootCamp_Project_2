@@ -48,6 +48,11 @@ margin-bottom: 20px;
     width: 100%;
 }
 
+#menus li{
+    list-style-type: none;
+    margin-left: -25px;
+}
+
 #menu{
     text-align: center;
     color: black;
