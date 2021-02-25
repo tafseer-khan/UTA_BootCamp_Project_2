@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap');
 
+body {
+    background-color: #F6343F;
+    color: #F2F2F2;
+}
+
+nav {
+margin-bottom: 20px;
+}
 .navbar-brand {
     font-family: "Hammersmith One", sans-serif;
     font-size: 30px;
@@ -15,10 +23,6 @@
     padding-right: 25px;
 }
 
-body {
-    background-color: #F6343F;
-    color: #F2F2F2;
-}
 
 .jumbotron {
     padding-top: 25px;
@@ -33,6 +37,10 @@ body {
 }
 .menu-items {
     color: #0D0D0D;
+}
+
+.createBtn, .editBtn {
+    margin-top: 20px;
 }
 
 #chefphoto {
