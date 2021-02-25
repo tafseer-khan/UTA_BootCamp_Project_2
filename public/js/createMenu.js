@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', () => {
     const mostRecent = localStorage.getItem('mostRecent');
     const addItem = document.getElementById('add-item');
@@ -55,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     })
 
                     finish.addEventListener('click', (e) => {
-                        window.location.replace('./userHome.html')
+                        window.location.replace('./userHome.html');
                     })
                 });
             })

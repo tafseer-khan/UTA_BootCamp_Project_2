@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+module.exports = () => {
+    const fs = request('fs');
+
+    let htmlContent = `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -101,6 +104,12 @@
                 </div>
             </div>
         </div>
-        <script src="js/generateMenu.js"></script>
 </body>
-</html>
+</html>`;
+
+    fs.writeFile('../menus/newMenu.html', htmlContent, (err) => {
+        if (err) {
+            throw err;
+        }
+    });
+}

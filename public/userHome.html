@@ -22,6 +22,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="./css/styles.css">
 </head>
 
 <body>
@@ -58,6 +59,7 @@
                                             <li class="card-body">
                                                 <h3>El Toro Tex Mex</h3>
                                                 <button data-bs-toggle='collapse' data-bs-target="#menu-name" class="btn btn-outline-secondary editBtn" type="submit">Edit Menu</button>
+                                                <button data-bs-toggle='collapse' data-bs-target="#menu-name" class="btn btn-outline-secondary editBtn" type="submit">Edit Menu</button>
                                             </li>
                                         </ul>
                                             
@@ -87,7 +89,7 @@
 
                                 <!-- ADDED BY REAGAN FOR BACKEND STUFF, FEEL FREE TO MODIFY -->
                                 <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-primary createBtn" data-toggle="modal"
+                                <button type="button" class="btn btn-secondary createBtn" data-toggle="modal"
                                 data-target="#createMenu">
                                 Create Menu
                                 </button>
@@ -114,7 +116,7 @@
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
                                                     data-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary" id="start-menu">Start Menu</button>
+                                                <button type="button" class="btn btn-secondary" id="start-menu">Start Menu</button>
                                             </div>
                                         </div>
                                     </div>
@@ -130,17 +132,22 @@
     
                 <!-- QR Codes Dashbaord -->
                 <div class="col-md-3">
-                    <div class="card">
+                    <div class="card qrmaincard">
                         <div class="card-body">
                             <h2>QR Codes</h2>
                             <!-- Have handlebars for created QR's so they're listed here -->
                             <!-- IMPORTANT **** Update VARIABLES HERE in Handlebars-->
                             <div class="row">
                                 <div class="col-md-12">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h3>{{qrCode}}</h3>
-                                        </div>
+                                    <div class="card qrcard">
+                                        <ul class="card-body" id="qr-list">
+                                            <li style="list-style-type: none;">
+                                                <h3>Menu Name</h3>
+                                                <div class="qr-code">
+
+                                                </div>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
@@ -155,6 +162,7 @@
     <script src="js/getUserData.js"></script>
     <script src="js/getMenuName.js"></script>
     <script src="js/getCreatedMenus.js"></script>
+    <script src="js/getQRcodes.js"></script>
     <script src="js/editMenu.js"></script>
 </body>
 

@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 renderAdded(userId, menuId);
                             })
     
-                        })
+                        });
 
                         finish.addEventListener('click', (e) => {
                             window.location.replace('./userHome.html')

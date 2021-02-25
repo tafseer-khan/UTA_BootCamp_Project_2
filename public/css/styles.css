@@ -1,4 +1,8 @@
+/* Fonts */
+
 @import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap');
+
+/* Elements */
 
 body {
     background-color: #F6343F;
@@ -8,10 +12,16 @@ body {
 nav {
 margin-bottom: 20px;
 }
+
+/* classes */
 .navbar-brand {
     font-family: "Hammersmith One", sans-serif;
     font-size: 30px;
     padding-left: 25px;
+}
+
+.hide{
+    display: none;
 }
 
 .loginButton {
@@ -28,22 +38,15 @@ margin-bottom: 20px;
     padding-top: 25px;
 }
 
-.card-body {
+.card-body, .menu-items {
     color: #0D0D0D;
 }
 
-.edit-item {
-    padding-top: 25px;
-}
-.menu-items {
-    color: #0D0D0D;
-}
-
-.createBtn, .editBtn {
+.createBtn, .editBtn, .edit-item {
     margin-top: 20px;
 }
 
-.menucard {
+.menucard, .qrcard {
     margin-bottom: 20px;
 }
 
@@ -51,6 +54,17 @@ margin-bottom: 20px;
     color: #F6343F;
 }
 
+.display-4 {
+    font-weight: bold;
+}
+
+@media screen and  (max-width:767px) {
+    .qrmaincard{
+        margin-top: 20px;
+    }
+}
+
+/* ID's */
 
 #chefphoto {
     padding-top: 20px;
@@ -58,12 +72,12 @@ margin-bottom: 20px;
 }
 
 
-#menus li{
+#menus li {
     list-style-type: none;
     margin-left: -25px;
 }
 
-#menu{
+#menu {
     text-align: center;
     color: black;
     width: 75%;
@@ -74,24 +88,31 @@ margin-bottom: 20px;
 #menu-name {
     color: #F6343F;
     margin-bottom: 20px;
+    font-weight: bold;
 }
 
-#menu ul{
+#menu ul {
     list-style-type: none;
 }
 
-#menu h1{
-    font-size: 100px;
-}
-
-#menu h2{
+#menu h1 {
     font-size: 75px;
 }
 
-#menu h3{
+#menu h2 {
     font-size: 50px;
+    font-weight: bold;
+}
+
+#menu h3 {
+    font-size: 25px;
+}
+
+#menu h4 {
+    font-size: 20px;
+    font-weight: lighter;
 }
 
 #menu p {
-    font-size: 25px;
+    font-size: 18px;
 }
