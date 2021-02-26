@@ -1,9 +1,11 @@
+// Once document has been loaded function will run 
 document.addEventListener('DOMContentLoaded', () => {
     let url = window.location.href;
     url = url.split('/');
     let menuId = url[url.length - 1];
     menuId = menuId[0];
     let foundApp, foundLunch, foundBreak, foundDinner, foundDessert;
+    // Gets our all of our Menu Items
     fetch(`/api/menus/${menuId}/menuItems`, {
         method: 'GET'
     }).then(res => {
@@ -18,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
             dinnerList.innerHTML = '';
             const dessertList = document.getElementById('dessert-list');
             dessertList.innerHTML = '';
+            // Will generate our Menu Items onto our Menu
             for (let i = 0; i < data.length; i++) {
                 console.log(data[i].name);
                 console.log('i' + i)
@@ -38,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
                 const { category } = data[i];
+                // If specific categories are not found they will not display on the Menu
 
                 switch (category) {
                     case 'apps':
@@ -62,7 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         foundDessert = true;
                         break;
                 }
-
                 fetch(`/api/menus/${menuId}`, {
                     method:'GET'
                 }).then(res => {

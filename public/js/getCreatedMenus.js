@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-
+    // Gets Our User Data
     fetch('/api/user_data', {
         method: 'GET',
         headers: {
@@ -20,9 +20,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     const qrList = document.getElementById('qr-list');
                     qrList.innerHTML = '';
                     menuList.innerHTML = '';
+                    // If there are no menus a message requesting to create a menu will be displayed
                     if (data.length === 0){
                         menuList.innerHTML = 'Please create a menu to get started'
                     }
+                    // Will add each of our Menus to the page
                     for(let i = 0; i < data.length; i++){
                         let li = document.createElement('li');
                         li.classList.add('card-body');
@@ -39,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         btn.setAttribute('data-menu', data[i].menuName)
                         btn.textContent = 'Edit Menu'
                         li.appendChild(btn);
-
+                        // Adds qr Codes to the page
                         let qrLI = document.createElement('li');
                         qrList.appendChild(qrLI);
                         qrLI.style.listStyleType = 'none';

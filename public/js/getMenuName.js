@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
     const startMenu = document.getElementById('start-menu');
 
-
+    // When start menu is clicked function will start
     startMenu.addEventListener('click', (e) => {
         e.preventDefault()
 
-
+        // Will rectrieve our user's id
         fetch('/api/user_data', {
             credentials: 'include',
             method: 'GET'
@@ -14,16 +14,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 id: data.id
             })
             ).then(res => {
-                // console.log(newMenu)
-
+                // Creates object with our new Menu with its Menu Name from the document 
                 const newMenu = {
                     menuName: document.getElementById('newMenu').value.trim()
                 }
+                // Sets this new created as our most recent value in our local storage
                 localStorage.setItem('mostRecent', newMenu.menuName);
-                console.log(menuName)
-                console.log(newMenu);
                 const myID = res.id
-                console.log(myID)
+                // Posts the menu name into our menus table with foreign key of the User ID
                 fetch(`/api/${myID}/createMenus`, {
                     method: 'POST',
                     body: JSON.stringify(newMenu),
@@ -31,6 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         "Content-Type": "application/json"
                     }
                 }).then(res => {
+                    // Then once new menu is added to database we will be redirected to a page where we can add items
                     window.location.replace('../createMenu.html');
                 })
             }
@@ -38,12 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             )
         })
-
-
-
-        // added for testing
-        //TODO make api call to create menu
-        //in the .then() create event listener for 'start menu' to redirect to the create menu page
 
     });
 });

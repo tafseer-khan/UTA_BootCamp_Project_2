@@ -5,15 +5,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const finish = document.getElementById('finish-menu');
 
         console.log(menuToEdit);
-
+        // Gets menu info for the local storage menu name
         fetch(`/api/${menuToEdit}/menuinfo`, {
             method:'GET'
         }).then(res => {
             res.json().then(data => {
                 const menuId = data.id;
+                // Gets user data
                 fetch('/api/user_data', {
                     method:'GET'
                 }).then(res => {
+                    // renders user Id and Menu ID
                     res.json().then(data => {
                         const userId = data.id;
                         renderAdded(userId, menuId);
@@ -26,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             const price = document.getElementById('price').value.trim();
     
                             console.log(section, dishName, description);
-    
+                            // Creates new dish object with values from input form once add item is clicked
                             const newDish = {
                                 name: dishName,
                                 description: description,
@@ -35,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             };
     
                             console.log(newDish);
-    
+                            // Posts dish into our menu Items table with associated menu ID 
                             fetch(`/api/${userId}/menus/${menuId}/menuItems`, {
                                 method: 'POST',
                                 headers: {
@@ -50,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             })
     
                         });
-
+                        // Once finish is clicked we are taken back to user home
                         finish.addEventListener('click', (e) => {
                             window.location.replace('./userHome.html')
                         })
@@ -60,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     }
 });
-
+// Gets and renders our new dishes
 const renderAdded = (userId, menuID) => {
     console.log('in render')
     fetch(`api/${userId}/menus/${menuID}/menuItems`, {

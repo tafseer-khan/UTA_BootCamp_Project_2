@@ -1,3 +1,4 @@
+// Creates new menu with our styling
 module.exports = () => {
     const fs = request('fs');
 

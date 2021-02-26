@@ -1,16 +1,11 @@
 const finishMenu = document.getElementById('finish-menu')
 const mostRecent = localStorage.getItem('mostRecent')
-// const mysql = require('mysql');
-// const connection = mysql.createConnection({
-//     host: 'localhost',
-//     port: 3306,
-//     user: 'root',
-//     password: 'AzAq69SxSw',
-//     database: "menu_maqrdb"
-// })
+// This script is bundled into the bundle.js file using Browserify for use of require outside of node start
+// Once clicking finish menu function is run
 finishMenu.addEventListener('click', (e) => {
     e.preventDefault()
     var QRCode = require('qrcode')
+    // Gets the id for the most recent menu from local storage, aka the menu we had just created
     fetch(`/api/${mostRecent}/menuinfo`, {
         method: 'GET',
         headers: {
@@ -23,17 +18,14 @@ finishMenu.addEventListener('click', (e) => {
         
         ))
     }).then(
-
+        // Using teh QRcode package a qr code of svg format is created and written as a string
+        // This QR code will link to the menu with the number associated with it's  menu ID
         QRCode.toString("https://menumaqr.herokuapp.com/menus/"+`${id}`+".html", { type: 'terminal' }, (err, url) => {
-
-            console.log(url)
-            console.log(id)
+            // Object with QR code is made to be later put into our database
             const newQR ={
                 qrLink: url
             }  
-            console.log(JSON.stringify(newQR))
-
-
+            // Puts our QRcode svg string into our database, in the row with matching Menu Name
             fetch(`/api/maybe/${mostRecent}/addQR`, {
                     method: 'PUT',
                     headers: {

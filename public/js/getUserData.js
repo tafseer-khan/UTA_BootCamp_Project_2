@@ -1,4 +1,4 @@
-
+// Gets our user Id and Email
 
 let user;
 
